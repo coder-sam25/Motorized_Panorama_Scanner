@@ -23,7 +23,7 @@ while len(frames) < capture_limit:
     display_frame = frame.copy()
     
     # --- GHOSTING OVERLAY ---
-    # Shows the previous capture semi-transparently to help you line up the overlap
+    # Shows the previous capture semi-transparently to help line up the overlap
     if last_frame_captured is not None:
         display_frame = cv2.addWeighted(frame, 0.6, last_frame_captured, 0.4, 0)
 
@@ -51,7 +51,7 @@ if len(frames) < 2:
     exit()
 
 print(" Stitching in SCANS mode...")
-# Use SCANS mode for linear/horizontal rotation
+# Use SCANS mode for linear rotation
 stitcher = cv2.Stitcher_create(cv2.Stitcher_SCANS)
 stitcher.setPanoConfidenceThresh(0.6) # Be more forgiving of slight mismatches
 
